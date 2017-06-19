@@ -13,9 +13,9 @@
     </tr>
     @foreach (var customer in Model)
     {
-        <tr>
+        <tr >
             <td>@Html.ActionLink(customer.Name, "Details", new { id = customer.Id })</td>
-            <td>@customer.MembershipType.DiscountRate%</td>
+            <td style="float:right">@customer.MembershipType.DiscountRate%</td>
         </tr>
     }
 </table>
