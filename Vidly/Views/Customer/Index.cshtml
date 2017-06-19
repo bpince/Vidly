@@ -6,7 +6,7 @@
 }
 
 <h2>Customers</h2>
-<table>
+<table class="table table-bordered table-hover">
     <tr>
         <th>Customers</th>
         <th>Discount Rate</th>
@@ -15,7 +15,7 @@
     {
         <tr >
             <td>@Html.ActionLink(customer.Name, "Details", new { id = customer.Id })</td>
-            <td style="float:right">@customer.MembershipType.DiscountRate%</td>
+            <td>@customer.MembershipType.MemberShipTypeName</td>
         </tr>
     }
 </table>
