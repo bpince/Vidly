@@ -235,6 +235,10 @@
     <Compile Include="Migrations\201706191140083_UpdateMembershipNameToRequireAndRename.Designer.cs">
       <DependentUpon>201706191140083_UpdateMembershipNameToRequireAndRename.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706191201511_AddUserBirthDate.cs" />
+    <Compile Include="Migrations\201706191201511_AddUserBirthDate.Designer.cs">
+      <DependentUpon>201706191201511_AddUserBirthDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -345,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706191140083_UpdateMembershipNameToRequireAndRename.resx">
       <DependentUpon>201706191140083_UpdateMembershipNameToRequireAndRename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706191201511_AddUserBirthDate.resx">
+      <DependentUpon>201706191201511_AddUserBirthDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
