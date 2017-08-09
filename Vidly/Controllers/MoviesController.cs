@@ -29,7 +29,7 @@ namespace Vidly.Controllers
             }
 
             //get movie list from db.
-            var viewModel = _context.Movies./*Include(m => m.Genre)*/ToList();
+            var viewModel = _context.Movies.Include(m => m.Genre).ToList();
 
             return View(viewModel);
             //return Content(String.Format("page index = {0}, sort by = {1}", pageIndex, sortBy));
@@ -37,7 +37,7 @@ namespace Vidly.Controllers
 
         public ActionResult Details(int? Id)
         {
-            var movie = _context.Movies./*Include(m => m.Genre)*/SingleOrDefault(m => m.Id == Id);
+            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == Id);
             if (movie != null)
             {
                 return View(movie);
@@ -50,7 +50,7 @@ namespace Vidly.Controllers
 
         public ActionResult Edit(int? Id)
         {
-            var selectedMovie = _context.Movies/*.Include(m => m.Genre)*/.SingleOrDefault(m => m.Id == Id);
+            var selectedMovie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == Id);
 
             if(selectedMovie != null)
             {
@@ -92,14 +92,14 @@ namespace Vidly.Controllers
                 if(movieInDb != null)
                 {
                     movieInDb.Name = movie.Name;
-                   // movieInDb.Genre_Id = movie.Genre_Id;
+                    movieInDb.GenreId = movie.GenreId;
                     movieInDb.ReleaseDate = movie.ReleaseDate;
                     movieInDb.AvailableAmount = movie.AvailableAmount;
                 }
             }
 
             _context.SaveChanges();
-            return RedirectToAction("Index", "Movie");
+            return RedirectToAction("Index", "Movies");
         }
 
         //REDUNDANT CODE??
