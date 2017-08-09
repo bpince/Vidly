@@ -251,6 +251,18 @@
     <Compile Include="Migrations\201708011011088_AddGenreDbSet.Designer.cs">
       <DependentUpon>201708011011088_AddGenreDbSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708011250065_NewMovieOne.cs" />
+    <Compile Include="Migrations\201708011250065_NewMovieOne.Designer.cs">
+      <DependentUpon>201708011250065_NewMovieOne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708011252384_BasicMovieModel.cs" />
+    <Compile Include="Migrations\201708011252384_BasicMovieModel.Designer.cs">
+      <DependentUpon>201708011252384_BasicMovieModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708091148471_RemoveGenreFromMovie.cs" />
+    <Compile Include="Migrations\201708091148471_RemoveGenreFromMovie.Designer.cs">
+      <DependentUpon>201708091148471_RemoveGenreFromMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -380,6 +392,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708011011088_AddGenreDbSet.resx">
       <DependentUpon>201708011011088_AddGenreDbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708011250065_NewMovieOne.resx">
+      <DependentUpon>201708011250065_NewMovieOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708011252384_BasicMovieModel.resx">
+      <DependentUpon>201708011252384_BasicMovieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091148471_RemoveGenreFromMovie.resx">
+      <DependentUpon>201708091148471_RemoveGenreFromMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

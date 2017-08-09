@@ -29,7 +29,7 @@ namespace Vidly.Controllers
             }
 
             //get movie list from db.
-            var viewModel = _context.Movies.Include(m => m.Genre).ToList();
+            var viewModel = _context.Movies./*Include(m => m.Genre)*/ToList();
 
             return View(viewModel);
             //return Content(String.Format("page index = {0}, sort by = {1}", pageIndex, sortBy));
@@ -37,7 +37,7 @@ namespace Vidly.Controllers
 
         public ActionResult Details(int? Id)
         {
-            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == Id);
+            var movie = _context.Movies./*Include(m => m.Genre)*/SingleOrDefault(m => m.Id == Id);
             if (movie != null)
             {
                 return View(movie);
@@ -50,11 +50,17 @@ namespace Vidly.Controllers
 
         public ActionResult Edit(int? Id)
         {
-            var selectedMovie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == Id);
+            var selectedMovie = _context.Movies/*.Include(m => m.Genre)*/.SingleOrDefault(m => m.Id == Id);
 
             if(selectedMovie != null)
             {
-                return View("CreateEdit", selectedMovie);
+                var viewModel = new MovieViewModel()
+                {
+                    Genres = _context.Genres.ToList(),
+                    Movie = selectedMovie
+                };
+
+                return View("CreateEdit", viewModel);
             }
             else
             {
@@ -71,6 +77,29 @@ namespace Vidly.Controllers
             };
 
             return View("CreateEdit", viewModel);
+        }
+
+        public ActionResult Save(Movie movie)
+        {
+            if(movie.Id == 0)
+            {
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == movie.Id);
+
+                if(movieInDb != null)
+                {
+                    movieInDb.Name = movie.Name;
+                   // movieInDb.Genre_Id = movie.Genre_Id;
+                    movieInDb.ReleaseDate = movie.ReleaseDate;
+                    movieInDb.AvailableAmount = movie.AvailableAmount;
+                }
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Movie");
         }
 
         //REDUNDANT CODE??
