@@ -18,5 +18,8 @@ namespace Vidly.Models
 
         [Required]
         public string MemberShipTypeName { get; set; }
+
+        public static readonly byte Unknown = 0;
+        public static readonly byte PayAsYouGo = 1;
     }
 }
