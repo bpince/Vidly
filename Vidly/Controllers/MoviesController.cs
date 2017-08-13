@@ -54,10 +54,9 @@ namespace Vidly.Controllers
 
             if(selectedMovie != null)
             {
-                var viewModel = new MovieViewModel()
+                var viewModel = new MovieViewModel(selectedMovie)
                 {
                     Genres = _context.Genres.ToList(),
-                    Movie = selectedMovie
                 };
 
                 return View("CreateEdit", viewModel);
@@ -79,8 +78,18 @@ namespace Vidly.Controllers
             return View("CreateEdit", viewModel);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+            }
+
             if(movie.Id == 0)
             {
                 _context.Movies.Add(movie);

@@ -15,18 +15,18 @@ namespace Vidly.Models
         [Required]
         public string Name { get; set; }
 
-        [Display(Name = "Release Date")]
+        [Required, Display(Name = "Release Date")]
         public DateTime? ReleaseDate { get; set; }
 
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime DateAdded { get; set; }
 
-        [Display(Name = "Number In Stock")]
+        [Required, Range(1, 20),Display(Name = "Number In Stock")]
         public int AvailableAmount { get; set; }
 
         public Genre Genre { get; set; }
 
-        [Display(Name = "Genre")]
+        [Required, Display(Name = "Genre")]
         public int GenreId { get; set; }
     }
 }
