@@ -28,10 +28,7 @@ namespace Vidly.Controllers
                 sortBy = "Name";
             }
 
-            //get movie list from db.
-            var viewModel = _context.Movies.Include(m => m.Genre).ToList();
-
-            return View(viewModel);
+            return View();
             //return Content(String.Format("page index = {0}, sort by = {1}", pageIndex, sortBy));
         }
 
