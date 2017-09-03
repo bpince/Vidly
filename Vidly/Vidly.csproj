@@ -303,6 +303,10 @@
     <Compile Include="Migrations\201708101252460_ValidationChapter.Designer.cs">
       <DependentUpon>201708101252460_ValidationChapter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709031154090_Seed-Users.cs" />
+    <Compile Include="Migrations\201709031154090_Seed-Users.Designer.cs">
+      <DependentUpon>201709031154090_Seed-Users.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -629,6 +633,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708101252460_ValidationChapter.resx">
       <DependentUpon>201708101252460_ValidationChapter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709031154090_Seed-Users.resx">
+      <DependentUpon>201709031154090_Seed-Users.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
