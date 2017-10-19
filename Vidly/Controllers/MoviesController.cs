@@ -5,6 +5,8 @@ using System.Data.Entity;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
+using System.Web.Security;
+using Microsoft.AspNet.Identity;
 
 namespace Vidly.Controllers
 {
@@ -17,18 +19,16 @@ namespace Vidly.Controllers
             _context = new ApplicationDbContext();
         }
 
-        public ActionResult Index(int? pageIndex, string sortBy)
+        public ActionResult Index()
         {
-            if (!pageIndex.HasValue)
+            if (User.IsInRole(RoleName.CanManageMovies))
             {
-                pageIndex = 1;
+                return View("List");
             }
-            if(String.IsNullOrWhiteSpace(sortBy))
+            else
             {
-                sortBy = "Name";
+                return View("ReadOnlyList");
             }
-
-            return View();
             //return Content(String.Format("page index = {0}, sort by = {1}", pageIndex, sortBy));
         }
 
@@ -65,6 +65,7 @@ namespace Vidly.Controllers
             
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var viewModel = new MovieViewModel()
